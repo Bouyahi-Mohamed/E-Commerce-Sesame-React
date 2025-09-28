@@ -1,60 +1,61 @@
 .main {
-  width: 100%;
-  max-width: 320px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 60px;
 }
 
 .products-grid {
-  background-color: rgba(251, 251, 251, 0.8);
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  margin-left: auto;
-  margin-right: auto;
 
- 
+  /* - In CSS Grid, 1fr means a column will take up the
+       remaining space in the grid.
+     - If we write 1fr 1fr ... 1fr; 8 times, this will
+       divide the grid into 8 columns, each taking up an
+       equal amount of the space.
+     - repeat(8, 1fr); is a shortcut for repeating "1fr"
+       8 times (instead of typing out "1fr" 8 times).
+       repeat(...) is a special property that works with
+       display: grid; */
+  grid-template-columns: repeat(8, 1fr);
 }
 
+/* @media is used to create responsive design (making the
+   website look good on any screen size). This @media
+   means when the screen width is 2000px or less, we
+   will divide the grid into 7 columns instead of 8. */
 @media (max-width: 2000px) {
   .products-grid {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(7, 1fr);
   }
 }
 
-
+/* This @media means when the screen width is 1600px or
+   less, we will divide the grid into 6 columns. */
 @media (max-width: 1600px) {
   .products-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
 }
 
 @media (max-width: 1300px) {
   .products-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-@media (max-width: 1200px) {
-  .products-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 
 @media (max-width: 1000px) {
   .products-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
-
 @media (max-width: 800px) {
   .products-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 575px) {
   .products-grid {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -65,15 +66,14 @@
 }
 
 .product-container {
-  background-color: white;
-  margin-top: 10px;
-  margin-left: 10px;
   padding-top: 40px;
   padding-bottom: 25px;
   padding-left: 25px;
   padding-right: 25px;
-  box-shadow: 0 2px 3px rgba(1, 1, 1, 0.812);
-  border-radius: 8px;
+
+  border-right: 1px solid rgb(231, 231, 231);
+  border-bottom: 1px solid rgb(231, 231, 231);
+
   display: flex;
   flex-direction: column;
 }
@@ -82,12 +82,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+
   height: 180px;
   margin-bottom: 20px;
 }
 
 .product-image {
+  /* - info - Images will overflow their container by default. To
+    prevent this, we set max-width and max-height to 100%
+    so they stay inside their container. */
   max-width: 100%;
   max-height: 100%;
 }
@@ -112,8 +115,6 @@
   color: rgb(1, 124, 182);
   cursor: pointer;
   margin-top: 3px;
-  font-size: 16px;
-  font-weight: 700;
 }
 
 .product-price {
@@ -137,11 +138,10 @@
   align-items: center;
   margin-bottom: 8px;
 
-  /* toDo : At first, the "Added to cart" message will
-     be invisible. Use JavaScript to show it. */
-
+  /* -todo- At first, the "Added to cart" message will
+     be invisible. Use JavaScript to change the
+     opacity and make it visible. */
   opacity: 0;
-  transition: opacity 0.3s ease-in-out; /* Smooth visibility change */
 }
 
 .added-to-cart img {
@@ -151,6 +151,6 @@
 
 .add-to-cart-button {
   width: 100%;
-  padding: 10px 25px;
-  border-radius: 10px;
+  padding: 8px;
+  border-radius: 50px;
 }
