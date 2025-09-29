@@ -1,10 +1,12 @@
 import './App.css';
 import {useState,useContext} from 'react';
 import {Routes, Route,Link} from 'react-router-dom';
-import Home from './pages';
+import Home from './pages/index';
 import ProductDetails from './pages/ProductDetails';
 import Order from './pages/order';
-import Checkout from './pages/checkout';
+import Cart from './pages/cart';
+import Login from './pages/login';
+import Logout from './pages/logout';
 import nbCartContext from './context/contextProduit';
 
 function App() {
@@ -16,9 +18,13 @@ function App() {
     
       <Routes>
         <Route path='/' element={<Home/>}/>
+        <Route path='/home' element={<Home/>}/>
+
         <Route path='/product/:id' element={<ProductDetails/>}/>
-        <Route path='/order' element={<Order/>}/>
-        <Route path='/checkout' element={<Checkout/>}/>
+        <Route path='/orders' element={<Order/>}/>
+        <Route path='/cart' element={<Cart/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/logout' element={<Logout/>}/>
         <Route path='*' element={<div>404 Not Found</div>}/>
       </Routes>
     </div>

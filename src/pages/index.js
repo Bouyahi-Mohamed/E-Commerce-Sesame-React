@@ -5,9 +5,12 @@ import Header1 from '../components/header1.js';
 import ProductList from '../components/productList.js';
 function Home() {
     const [products, setProducts] = useState([]);
-    useEffect(async () => {
-        const products = await axios.get('http://localhost:5000/products/');
-        setProducts(products.data);
+    useEffect(() => {
+        const fetchProducts = async () => {
+            const products = await axios.get('http://localhost:5000/products/');
+            setProducts(products.data);
+        };
+        fetchProducts();
     }, []);
 
   return (

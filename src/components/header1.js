@@ -11,7 +11,8 @@ import Cart from '../assets/icons/cart-icon.png';
 // import react components and hooks
 import { useContext } from 'react';
 import nbCartContext from '../context/contextProduit';
-
+// import react-router-dom components
+import { Link } from 'react-router-dom';
 function Header1({ user, order }) {
   const { nbCart } = useContext(nbCartContext);
 
@@ -19,7 +20,7 @@ function Header1({ user, order }) {
     <>
       <div className="sesame-header">
         <div className="sesame-header-left-section">
-          <a href="/home" className="header-link">
+          <Link to="/Home" className="header-link">
             <img
               className="sesame-logo"
               src={sesameLogo}
@@ -30,7 +31,7 @@ function Header1({ user, order }) {
               src={sesameMobileLogo}
               alt="Sesame Mobile Logo"
             />
-          </a>
+          </Link>
         </div>
 
         <div className="sesame-header-middle-section">
@@ -50,32 +51,32 @@ function Header1({ user, order }) {
 
         <div className="sesame-header-right-section">
           {false ? (
-            <a className="account-link header-link" href="/logout">
+            <Link className="account-link header-link" to="/logout">
               <img
                 className="cart-icon"
                 src={Logout}
                 alt="Logout"
               />
-            </a>
+            </Link>
           ) : (
-            <a className="account-link header-link" href="/login">
+            <Link className="account-link header-link" to="/login">
               <img
                 className="cart-icon"
                 src={Login}
                 alt="Login"
               />
-            </a>
+            </Link>
           )}
 
-          <a className="orders-link header-link" href="/orders">
+          <Link className="orders-link header-link" to="/orders">
             <img
               className="cart-icon"
               src={Orders}
               alt="Orders"
             />
-          </a>
+          </Link>
 
-          <a className="cart-link header-link" href="/cart">
+          <Link className="cart-link header-link" to="/cart">
             <img
               className="cart-icon"
               src={Cart}
@@ -85,7 +86,7 @@ function Header1({ user, order }) {
             <div className="cart-quantity">
               {nbCart}
             </div>
-          </a>
+          </Link>
         </div>
       </div>
     </>
