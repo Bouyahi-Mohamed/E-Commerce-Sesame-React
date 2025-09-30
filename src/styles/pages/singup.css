@@ -59,3 +59,27 @@
   .login-link a:hover {
     text-decoration: underline;
   }
+  .button-secondary {
+    background-color: #ffffff;
+    color: #3b3c3d;
+    font-size: 14px;
+    border: 2px solid #4d4f52;
+  }
+  .google-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .alert-error {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 80px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    z-index: auto;
+  }

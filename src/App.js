@@ -7,6 +7,8 @@ import Order from './pages/order';
 import Cart from './pages/cart';
 import Login from './pages/login';
 import Logout from './pages/logout';
+import Signup from './pages/signup';
+// import context
 import nbCartContext from './context/contextProduit';
 
 function App() {
@@ -25,6 +27,7 @@ function App() {
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/logout' element={<Logout/>}/>
+        <Route path='/signup' element={<Signup/>}/>
         <Route path='*' element={<div>404 Not Found</div>}/>
       </Routes>
     </div>
