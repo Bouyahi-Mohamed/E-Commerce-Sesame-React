@@ -7,8 +7,8 @@ export default function ProductList({ products = [] }) {
 
   let ProductItems = products.map((product) => {
     return (
-      <div className="product-container" key={product.id}>
-        <Link to={`/product/${product.id}`}>
+      <div className="product-container" key={product._id}>
+        <Link to={`/product/${product._id}`}>
           <div className="product-image-container">
             <img className="product-image"
               src={product.image} alt={product.name} />
@@ -42,6 +42,7 @@ export default function ProductList({ products = [] }) {
           <button className="add-to-cart-button button-primary"
           onClick={() => {
             setNbCart((e) => e + 1);
+            alert(product.image);
           }}>
             Add to Cart
           </button>

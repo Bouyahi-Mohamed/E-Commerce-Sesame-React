@@ -1,6 +1,6 @@
 import './App.css';
-import {useState,useContext} from 'react';
-import {Routes, Route,Link} from 'react-router-dom';
+import {useState} from 'react';
+import {Routes, Route} from 'react-router-dom';
 import Home from './pages/index';
 import ProductDetails from './pages/ProductDetails';
 import Order from './pages/order';
