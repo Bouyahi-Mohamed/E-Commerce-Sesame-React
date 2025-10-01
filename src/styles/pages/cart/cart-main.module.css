@@ -100,7 +100,14 @@
     font-weight: 700;
     margin-bottom: 5px;
   }
-  
+  .product-quantity {
+   display: flex;
+   align-items: center;
+   font-size: 17px;   
+   color: rgb(100, 100, 100);
+   gap: 10px;
+
+  }
   .product-quantity .link-primary {
     margin-left: 3px;
   }
@@ -189,7 +196,7 @@
 .img-arrow{
   display: block;
   margin: 2px;
-  height: 9px;
+  height: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -197,3 +204,4 @@
   display: flex; 
   flex-direction: column;
 }
+

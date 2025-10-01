@@ -1,28 +1,36 @@
 
+// Import css file
+import '../styles/pages/cart/cart-header.css'
+// Import react router dom
+import { Link } from "react-router-dom";
+// Import images
+import Logo from '../assets/logo/sesame-logo.png'
+import logoImage from '../assets/logo/sesame-mobile-logo.png'
+import checkoutLogo from '../assets/icons/checkout-lock-icon.png'
 
-function Header2() {
+
+export default function Header2() {
   return (
-    <>
-      <div className="cart-header">
-        <div className="header-content">
-          <div className="cart-header-left-section">
-            <a href="/home">
-              <img className="sesame-logo" src="/images/sesame-logo.png" alt="Sesame Logo" />
-              <img className="sesame-mobile-logo" src="/images/sesame-mobile-logo.png" alt="Sesame Mobile Logo" />
-            </a>
-          </div>
+   <>
+       <div className="cart-header">
+      <div className="header-content">
+        <div className="cart-header-left-section">
+          <Link to="/">
+            <img className="sesame-logo" src={Logo} alt="Sesame Logo" />
+            <img className="sesame-mobile-logo" src={logoImage} alt="Sesame Mobile Logo" />
+          </Link>
+        </div>
 
-          <div className="cart-header-middle-section">
-            cart (<a className="return-to-home-link" href="/home">{0} items</a>)
-          </div>
+        <div className="cart-header-middle-section">
+          Checkout (<Link className="return-to-home-link"
+            to="/">3 items</Link>)
+        </div>
 
-          <div className="cart-header-right-section" onClick={() => { window.location.href = '/login'; }}>
-            <img src="/images/icons/checkout-lock-icon.png" alt="Cart lock icon" />
-          </div>
+        <div className="cart-header-right-section">
+          <img src={checkoutLogo} alt="Checkout" />
         </div>
       </div>
-    </>
+    </div>
+   </>
   );
 }
-
-export default Header2;

@@ -25,7 +25,7 @@ input, select, button {
   font-family: Roboto, Arial;
 }
 input{
-  outline: 2px solid  rgb(172, 172, 172);
+  outline: 2px solid  rgb(255, 255, 255);
 }
 
 .button-primary {
