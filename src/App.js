@@ -8,6 +8,7 @@ import Cart from './pages/cart';
 import Login from './pages/login';
 import Logout from './pages/logout';
 import Signup from './pages/signup';
+import CartItemDetail from './pages/CartItemDetail';  
 // import context
 import nbCartContext from './context/contextProduit';
 
@@ -25,6 +26,7 @@ function App() {
         <Route path='/product/:id' element={<ProductDetails/>}/>
         <Route path='/orders' element={<Order/>}/>
         <Route path='/cart' element={<Cart/>}/>
+        <Route path='/cart/:id' element={<CartItemDetail/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/logout' element={<Logout/>}/>
         <Route path='/signup' element={<Signup/>}/>
