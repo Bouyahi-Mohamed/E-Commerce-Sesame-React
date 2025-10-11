@@ -3,10 +3,10 @@ import '../styles/pages/login.css';
 import { Link } from 'react-router-dom';
 import Header1 from '../components/header1';
 
-function Login() {
+function Login({ carts }) {
     return (
         <>
-        <Header1 />
+        <Header1 carts={carts} />
     <div className='big-container-login'>
       <div className="login-container">
         <h2>Login</h2>

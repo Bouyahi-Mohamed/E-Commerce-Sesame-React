@@ -51,9 +51,9 @@ function App() {
         <Route path='/orders' element={<Order carts={carts} />}/>
         <Route path='/cart' element={<Cart carts={carts} />}/>
         <Route path='/cart/:id' element={<CartItemDetail carts={carts} />}/>
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/logout' element={<Logout/>}/>
-        <Route path='/signup' element={<Signup/>}/>
+        <Route path='/login' element={<Login carts={carts} />}/>
+        <Route path='/logout' element={<Logout carts={carts} />}/>
+        <Route path='/signup' element={<Signup carts={carts} />}/>
         <Route path='*' element={<div>404 Not Found</div>}/>
       </Routes>
     </div>

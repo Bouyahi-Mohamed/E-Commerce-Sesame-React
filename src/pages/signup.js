@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import googleIcon from '../assets/icons/google-icon.png';
 import Header1 from '../components/header1';
 
-function Signup() {
+function Signup({ carts }) {
     return (
         <>
         {/* Display error message if any */}
-    <Header1 />
+    <Header1 carts={carts} />
     {false ? <p className="alert-error">Please correct the errors below:</p>: null}
 
   <div className="big-container-signup">
