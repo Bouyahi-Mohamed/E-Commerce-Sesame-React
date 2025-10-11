@@ -9,12 +9,12 @@ import Login from '../assets/icons/login-avatar.png';
 import Orders from '../assets/icons/shopping-bag.png';
 import Cart from '../assets/icons/cart-icon.png';
 // import react components and hooks
-import { useContext } from 'react';
-import nbCartContext from '../context/contextProduit';
 // import react-router-dom components
 import { Link } from 'react-router-dom';
-function Header1({ user, order }) {
-  const { nbCart } = useContext(nbCartContext);
+function Header1({ carts }) {
+
+  // const cartCount = carts.reduce((total, cart) => total + cart.quantity, 0);
+  const cartCount = carts.length;
 
   return (
     <>
@@ -84,7 +84,7 @@ function Header1({ user, order }) {
             />
             <div className="cart-text">Cart</div>
             <div className="cart-quantity">
-              {nbCart}
+              {cartCount}
             </div>
           </Link>
         </div>

@@ -1,9 +1,7 @@
+import axios from 'axios';
 import '../styles/pages/sesame.css';
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
-import nbCartContext from '../context/contextProduit';
 export default function ProductList({ products = [] }) {
-  const {nbCart, setNbCart} = useContext(nbCartContext);
 
   let ProductItems = products.map((product) => {
     return (
@@ -41,8 +39,13 @@ export default function ProductList({ products = [] }) {
         
           <button className="add-to-cart-button button-primary"
           onClick={() => {
-            setNbCart((e) => e + 1);
-            alert(product.image);
+            axios.post('http://localhost:5000/cart/', { product: product._id , quantity: 1 })
+              .then(response => {
+                alert('Product added to cart');
+              })
+              .catch(error => {
+                console.error('Error adding product to cart:', error);
+              });
           }}>
             Add to Cart
           </button>
