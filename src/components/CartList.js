@@ -1,5 +1,7 @@
 import styles from "../styles/pages/cart/cart-main.module.css";
 import { useState, useEffect } from "react";
+// date-fns
+import { format, addDays } from 'date-fns';
 //import images
 import arrowUp from "../assets/icons/arrow-up.png";
 import arrowDown from "../assets/icons/arrow-down.png";
@@ -46,9 +48,7 @@ export default function CartList({ carts }) {
     <div className={styles["cart-item-container"]} key={cart._id}>
       <div className={styles["delivery-date"]}>
         Delivery date:{" "}
-        {deliveryOptions.length > 0
-          ? deliveryOptions[2].estimatedDeliveryDate
-          : "Loading..."}
+        {format(addDays(new Date(), cart.deliveryOption.estimatedDays), 'MMMM dd, yyyy')}
       </div>
       <div className={styles["cart-item-details-grid"]}>
         <img
