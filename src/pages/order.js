@@ -1,19 +1,9 @@
 
-import { useState, useEffect } from "react";
 import "../styles/pages/order/orders.css";
 import { Link } from "react-router-dom";
 import Header1 from '../components/header1.js';
-function Order() {
-  const [carts, setCarts] = useState([]);
+function Order({ carts }) {
 
-  useEffect(() => {
-    fetch("http://localhost:5000/cart/")
-      .then((response) => response.json())
-      .then((data) => {
-        // Handle the cart data
-        setCarts(data);
-      });
-  }, []);
   const total = carts.reduce(
     (sum, item) => sum + Number(item.product.priceCents) * item.quantity,
     0
@@ -30,7 +20,7 @@ function Order() {
   });
   return (
     <>
-      <Header1 />
+      <Header1 carts={carts} />
       <div className="container">
         <div className="form-container">
           <form id="form">
@@ -63,8 +53,10 @@ function Order() {
         <h3>Order Summary</h3>
         <br />
         <div className="cart-items">{cartList}</div>
+        <div className="order-totals">
         <h5>Items: {carts.length}</h5>
         <h5>Total: ${total / 100}</h5>
+        </div>
       </div>
     </div>
       </>

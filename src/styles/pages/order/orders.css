@@ -124,7 +124,11 @@
   color: white;
   transform: translateX(-3px);
 }
-
+.cart-items {  
+  margin-top: -30px;
+  overflow-y: auto;
+  max-height: 233px;
+  }
 .cart-row {
   display: flex;
   align-items: center;
@@ -237,7 +241,13 @@
   border-bottom: 2px solid #e5e7eb;
   padding-bottom: 15px;
 }
-
+.order-totals {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  border-top: 2px solid #e5e7eb;
+  padding-top: 10px;
+}
 .summary-container h5 {
   color: #374151;
   font-size: 16px;
