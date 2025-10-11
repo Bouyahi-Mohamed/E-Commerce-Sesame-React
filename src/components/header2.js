@@ -9,7 +9,7 @@ import logoImage from '../assets/logo/sesame-mobile-logo.png'
 import checkoutLogo from '../assets/icons/checkout-lock-icon.png'
 
 
-export default function Header2() {
+export default function Header2({ carts }) {
   return (
    <>
        <div className="cart-header">
@@ -23,7 +23,7 @@ export default function Header2() {
 
         <div className="cart-header-middle-section">
           Checkout (<Link className="return-to-home-link"
-            to="/">3 items</Link>)
+            to="/">{carts.length} items</Link>)
         </div>
 
         <div className="cart-header-right-section">

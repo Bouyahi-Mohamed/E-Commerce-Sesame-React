@@ -4,6 +4,7 @@ import { useState } from "react";
 import arrowUp from '../assets/icons/arrow-up.png'
 import arrowDown from '../assets/icons/arrow-down.png'
 import { Link } from "react-router-dom";
+import axios from "axios";
 export default function CheckoutList({ carts }) {
 
   const today = new Date();
@@ -59,12 +60,12 @@ export default function CheckoutList({ carts }) {
             </span>
             <div className="quantity-link">
               <div className="update-quantity-link link-primary">
-                <img className={`${styles["chg-quantity"]} ${styles["update-cart"]} ${styles["img-arrow"]}`} src={arrowUp} alt="Increase quantity"  onClick={() => alert("Increase quantity")} />
-                <img className={`${styles["chg-quantity"]} ${styles["update-cart"]} ${styles["img-arrow"]}`} src={arrowDown} alt="Decrease quantity" onClick={() => alert("Decrease quantity")} />
+                <img className={`${styles["chg-quantity"]} ${styles["update-cart"]} ${styles["img-arrow"]}`} src={arrowUp} alt="Increase quantity"  onClick={() => axios.patch(`http://localhost:5000/cart/`, { id: cart._id, quantity: cart.quantity + 1 })} />
+                <img className={`${styles["chg-quantity"]} ${styles["update-cart"]} ${styles["img-arrow"]}`} src={arrowDown} alt="Decrease quantity" onClick={() => axios.patch(`http://localhost:5000/cart/`, { id: cart._id, quantity: cart.quantity - 1 })} />
               </div>
             </div>
             <span
-              className={`${styles["delete-quantity-link"]} ${"link-primary"}`} onClick={() => alert("Delete item")}
+              className={`${styles["delete-quantity-link"]} ${"link-primary"}`} onClick={() => axios.delete(`http://localhost:5000/cart/`, { data: { id: cart._id } })}
             >
               Delete{" "}
             </span>
