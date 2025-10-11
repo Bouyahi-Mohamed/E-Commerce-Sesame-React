@@ -14,6 +14,8 @@ import CartItemDetail from './pages/CartItemDetail';
 
 function App() {
 
+  // fetch products from backend
+
  const [products, setProducts] = useState([]);
   const fetchProducts = async () => {
     try {
@@ -35,11 +37,12 @@ function App() {
             } catch (error) {
               console.error("Error fetching carts:", error);
             }
-        };
+        };                        
     useEffect(() => {
         fetchCarts();
     }, [carts]);
 
+    // ---end fetch products from backend---
   return (
     <div className="App">
     

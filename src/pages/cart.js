@@ -1,14 +1,14 @@
 import Header2 from "../components/header2";
-import CheckoutList from "../components/Checkout-list";
+import CartList from "../components/CartList";
 
-export default function Checkout({ carts }) {
+export default function Cart({ carts }) {
 
 
 
   return (
     <div>
       <Header2 carts={carts} />
-      <CheckoutList carts={carts} />
+      <CartList carts={carts} />
     </div>
   );
 }

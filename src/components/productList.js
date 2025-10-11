@@ -39,7 +39,7 @@ export default function ProductList({ products = [] }) {
         
           <button className="add-to-cart-button button-primary"
           onClick={() => {
-            axios.post('http://localhost:5000/cart/', { product: product._id , quantity: 1 })
+            axios.post('http://localhost:5000/cart/', { product: product._id , quantity: 1,"deliveryOption":"68ea8ade229c8fbb03760f1c" })
               .then(response => {
                 alert('Product added to cart');
               })
