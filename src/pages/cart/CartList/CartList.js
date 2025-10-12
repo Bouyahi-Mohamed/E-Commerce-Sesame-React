@@ -1,10 +1,10 @@
-import styles from "../../styles/pages/cart/cart-main.module.css";
+import styles from "./cart-main.module.css";
 import { useState, useEffect } from "react";
 // date-fns
 import { format, addDays } from 'date-fns';
 //import images
-import arrowUp from "../../assets/icons/arrow-up.png";
-import arrowDown from "../../assets/icons/arrow-down.png";
+import arrowUp from "../../../assets/icons/arrow-up.png";
+import arrowDown from "../../../assets/icons/arrow-down.png";
 //end import images
 import { Link } from "react-router-dom";
 import axios from "axios";

@@ -1,7 +1,7 @@
 
 import { useParams } from "react-router-dom";
-import Header1 from "../components/header1";
-function CartItemDetail(cart) {
+import Header1 from "../../components/header1/header1";
+function OrderItemDetail(cart) {
   const { id } = useParams();
 
   return (
@@ -13,4 +13,4 @@ function CartItemDetail(cart) {
     </>
   );
 }
-export default CartItemDetail;
+export default OrderItemDetail;

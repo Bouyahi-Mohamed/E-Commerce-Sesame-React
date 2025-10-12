@@ -1,7 +1,7 @@
-import "../styles/pages/produit.css";
+import "./ProductDetails.css";
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Header from "../components/header1";
+import Header from "../../components/header1/header1";
 import axios from "axios";
 
 export default function ProductDetails({ carts }) {

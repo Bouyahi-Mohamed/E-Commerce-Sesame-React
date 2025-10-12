@@ -1,5 +1,5 @@
-import sesameLogo from '../assets/logo/sesame-logo.png';
-import '../styles/shared/sesame-footer.css';
+import sesameLogo from '../../assets/logo/sesame-logo.png';
+import './sesame-footer.css';
 function Footer() {
   return (
     <div className="footer">

@@ -1,8 +1,8 @@
 
-import '../styles/pages/singup.css';
+import './singup.css';
 import { Link } from 'react-router-dom';
-import googleIcon from '../assets/icons/google-icon.png';
-import Header1 from '../components/header1';
+import googleIcon from '../../assets/icons/google-icon.png';
+import Header1 from '../../components/header1/header1';
 
 function Signup({ carts }) {
     return (

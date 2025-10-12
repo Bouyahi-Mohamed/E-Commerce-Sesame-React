@@ -5,14 +5,14 @@ import axios from 'axios';// axios for fetching
 import {useState ,useEffect} from 'react'; // usehooks 
 import {Routes, Route} from 'react-router-dom'; //hooks for do routing in react 
 //start import pages
-import Home from './pages/home/index';
+import Home from './pages/home/home';
 import Cart from './pages/cart/cart';
-import ProductDetails from './pages/ProductDetails';
-import Order from './pages/order';
-import Login from './pages/login';
-import Logout from './pages/logout';
-import Signup from './pages/signup';
-import CartItemDetail from './pages/CartItemDetail';
+import Order from './pages/order/order';
+import ProductDetails from './pages/ProductDetails/ProductDetails';
+import Login from './pages/login/login';
+import Logout from './pages/logout/logout';
+import Signup from './pages/signup/signup';
+import OrderItemDetail from './pages/OrderItemDetail/OrderItemDetail';
 // end impot pages  
 
 function App() {
@@ -61,7 +61,7 @@ function App() {
         <Route path='/product/:id' element={<ProductDetails carts={carts} />}/>
         <Route path='/orders' element={<Order carts={carts} />}/>
         <Route path='/cart' element={<Cart carts={carts} />}/>
-        <Route path='/cart/:id' element={<CartItemDetail carts={carts} />}/>
+        <Route path='/cart/:id' element={<OrderItemDetail carts={carts} />}/>
         <Route path='/login' element={<Login carts={carts} />}/>
         <Route path='/logout' element={<Logout carts={carts} />}/>
         <Route path='/signup' element={<Signup carts={carts} />}/>

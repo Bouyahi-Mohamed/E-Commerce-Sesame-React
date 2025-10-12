@@ -1,7 +1,7 @@
 
-import "../styles/pages/order/orders.css";
+import "./orders.css";
 import { Link } from "react-router-dom";
-import Header1 from '../components/header1.js';
+import Header1 from '../../components/header1/header1.js';
 function Order({ carts }) {
 
   const total = carts.reduce(

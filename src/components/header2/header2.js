@@ -1,12 +1,12 @@
 
 // Import css file
-import '../styles/pages/cart/cart-header.css'
+import './cart-header.css'
 // Import react router dom
 import { Link } from "react-router-dom";
 // Import images
-import Logo from '../assets/logo/sesame-logo.png'
-import logoImage from '../assets/logo/sesame-mobile-logo.png'
-import checkoutLogo from '../assets/icons/checkout-lock-icon.png'
+import Logo from '../../assets/logo/sesame-logo.png'
+import logoImage from '../../assets/logo/sesame-mobile-logo.png'
+import checkoutLogo from '../../assets/icons/checkout-lock-icon.png'
 
 
 export default function Header2({ carts }) {

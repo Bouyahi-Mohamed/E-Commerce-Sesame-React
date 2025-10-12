@@ -1,13 +1,13 @@
 // import styles for this component
-import '../styles/shared/sesame-header.css';
+import './sesame-header.css';
 // import images and icons
-import sesameLogo from '../assets/logo/sesame-logo.png';
-import sesameMobileLogo from '../assets/logo/sesame-mobile-logo-white.png';
-import searchIcon from '../assets/icons/search-icon.png';
-import Logout from '../assets/icons/logout.png';
-import Login from '../assets/icons/login-avatar.png';
-import Orders from '../assets/icons/shopping-bag.png';
-import Cart from '../assets/icons/cart-icon.png';
+import sesameLogo from '../../assets/logo/sesame-logo.png';
+import sesameMobileLogo from '../../assets/logo/sesame-mobile-logo-white.png';
+import searchIcon from '../../assets/icons/search-icon.png';
+import Logout from '../../assets/icons/logout.png';
+import Login from '../../assets/icons/login-avatar.png';
+import Orders from '../../assets/icons/shopping-bag.png';
+import Cart from '../../assets/icons/cart-icon.png';
 // import react components and hooks
 // import react-router-dom components
 import { Link } from 'react-router-dom';

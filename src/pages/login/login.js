@@ -1,7 +1,7 @@
 
-import '../styles/pages/login.css';
+import './login.css';
 import { Link } from 'react-router-dom';
-import Header1 from '../components/header1';
+import Header1 from '../../components/header1/header1';
 
 function Login({ carts }) {
     return (
