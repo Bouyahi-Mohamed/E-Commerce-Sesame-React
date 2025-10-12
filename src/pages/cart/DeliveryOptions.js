@@ -1,5 +1,5 @@
 
-import styles from "../styles/pages/cart/cart-main.module.css";
+import styles from "../../styles/pages/cart/cart-main.module.css";
 import axios from "axios";
 
 export default function DeliveryOptions({ deliveryOptions, cart }) {

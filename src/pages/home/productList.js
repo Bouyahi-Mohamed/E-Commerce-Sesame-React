@@ -1,5 +1,5 @@
 import axios from 'axios';
-import '../styles/pages/sesame.css';
+import '../../styles/pages/sesame.css';
 import { Link } from 'react-router-dom';
 export default function ProductList({ products = [] }) {
 

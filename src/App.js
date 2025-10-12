@@ -1,20 +1,23 @@
-import axios from 'axios';
+// start import css is like a general css 
 import './App.css';
-import {useState ,useEffect} from 'react';
-import {Routes, Route} from 'react-router-dom';
-import Home from './pages/index';
+// end css import 
+import axios from 'axios';// axios for fetching 
+import {useState ,useEffect} from 'react'; // usehooks 
+import {Routes, Route} from 'react-router-dom'; //hooks for do routing in react 
+//start import pages
+import Home from './pages/home/index';
+import Cart from './pages/cart/cart';
 import ProductDetails from './pages/ProductDetails';
 import Order from './pages/order';
-import Cart from './pages/cart';
 import Login from './pages/login';
 import Logout from './pages/logout';
 import Signup from './pages/signup';
-import CartItemDetail from './pages/CartItemDetail';  
-// import context
+import CartItemDetail from './pages/CartItemDetail';
+// end impot pages  
 
 function App() {
 
-  // fetch products from backend
+  // start fetch products from backend
 
  const [products, setProducts] = useState([]);
   const fetchProducts = async () => {
@@ -28,7 +31,10 @@ function App() {
     useEffect(() => {
        fetchProducts();
     }, [products]);
+  
+  // end fetch product 
 
+  //fetch cart from backend
     const [carts, setCarts] = useState([]);
   const fetchCarts = async () => {
             try {
@@ -43,9 +49,11 @@ function App() {
     }, [carts]);
 
     // ---end fetch products from backend---
+
   return (
+    // start making routes
     <div className="App">
-    
+  
       <Routes>
         <Route path='/' element={<Home products={products} carts={carts} />}/>
         <Route path='/home' element={<Home products={products} carts={carts} />}/>
@@ -60,6 +68,7 @@ function App() {
         <Route path='*' element={<div>404 Not Found</div>}/>
       </Routes>
     </div>
+    //end routes
   );
 }
 
