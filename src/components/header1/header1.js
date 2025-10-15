@@ -12,9 +12,9 @@ import Cart from '../../assets/icons/cart-icon.png';
 // import react-router-dom components
 import { Link } from 'react-router-dom';
 function Header1({ carts }) {
-
-  // const cartCount = carts.reduce((total, cart) => total + cart.quantity, 0);
-  const cartCount = carts.length;
+// calculate cart count
+  const cartCount = carts.reduce((total, cart) => total + cart.quantity, 0);
+  // cartCount = carts.length;
 
   return (
     <>

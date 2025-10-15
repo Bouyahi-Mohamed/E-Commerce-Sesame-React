@@ -10,8 +10,10 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import DeliveryOptions from "./DeliveryOptions";
 export default function CartList({ carts }) {
+
   // fetch delivery options from backend
   const [deliveryOptions, setDeliveryOptions] = useState([]);
+
   const fetchDeliveryOptions = async () => {
     try {
       const options = await axios.get("http://localhost:5000/deliverOptions");
@@ -24,6 +26,7 @@ export default function CartList({ carts }) {
     fetchDeliveryOptions();
   }, [deliveryOptions]);
 
+  // calculate totals
   const totalCart = () => {
     let total = 0;
     carts.forEach((item) => {
@@ -32,6 +35,7 @@ export default function CartList({ carts }) {
     return total.toFixed(2);
   };
 
+  // calculate total shipping
   let  totalShipping = () => {
     let shippingCost = 0;
     carts.forEach((item) => {
@@ -40,11 +44,44 @@ export default function CartList({ carts }) {
     return shippingCost.toFixed(2);
   };
 
+  // calculate tax and total after tax
   let totalBeforeTax = (parseFloat(totalCart()) + parseFloat(totalShipping())).toFixed(2);
 
+  // calculate tax
   let tax = (totalBeforeTax * 0.1).toFixed(2);
+
+  // calculate total after tax
   let totalAfterTax = (parseFloat(totalBeforeTax) + parseFloat(tax)).toFixed(2);
 
+  // handle increase quantity
+  const handleIncreaseQuantity = (cart) => {
+    axios.patch(`http://localhost:5000/cart/`, {
+      id: cart._id,
+      quantity: cart.quantity + 1,
+    });
+  };
+  // handle decrease quantity
+  const handleDecreaseQuantity = (cart) => {
+    if (cart.quantity > 1) {
+      axios.patch(`http://localhost:5000/cart/`, {
+        id: cart._id,
+        quantity: cart.quantity - 1,
+      });
+    } else {
+      axios.delete(`http://localhost:5000/cart/`, {
+        data: { id: cart._id },
+      });
+    }
+  };
+
+  // handle delete item
+  const handleDeleteItem = (cart) => {
+    axios.delete(`http://localhost:5000/cart/`, {
+      data: { id: cart._id },
+    });
+  };
+
+  // create cart items
   let cartItems = carts.map((cart) => (
     <div className={styles["cart-item-container"]} key={cart._id}>
       <div className={styles["delivery-date"]}>
@@ -75,33 +112,19 @@ export default function CartList({ carts }) {
                   className={`${styles["chg-quantity"]} ${styles["update-cart"]} ${styles["img-arrow"]}`}
                   src={arrowUp}
                   alt="Increase quantity"
-                  onClick={() =>
-                    axios.patch(`http://localhost:5000/cart/`, {
-                      id: cart._id,
-                      quantity: cart.quantity + 1,
-                    })
-                  }
+                  onClick={() => handleIncreaseQuantity(cart)}
                 />
                 <img
                   className={`${styles["chg-quantity"]} ${styles["update-cart"]} ${styles["img-arrow"]}`}
                   src={arrowDown}
                   alt="Decrease quantity"
-                  onClick={() =>
-                    axios.patch(`http://localhost:5000/cart/`, {
-                      id: cart._id,
-                      quantity: cart.quantity - 1,
-                    })
-                  }
+                  onClick={() => handleDecreaseQuantity(cart)}
                 />
               </div>
             </div>
             <span
               className={`${styles["delete-quantity-link"]} ${"link-primary"}`}
-              onClick={() =>
-                axios.delete(`http://localhost:5000/cart/`, {
-                  data: { id: cart._id },
-                })
-              }
+              onClick={() => handleDeleteItem(cart)}
             >
               Delete{" "}
             </span>

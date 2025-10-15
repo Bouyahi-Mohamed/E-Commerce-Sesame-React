@@ -5,12 +5,23 @@ import Header from "../../components/header1/header1";
 import axios from "axios";
 
 export default function ProductDetails({ carts }) {
+  // state for product details
   const [productDetails, setProductDetails] = useState(null);
-  // const { nbCart, setNbCart } = useContext(nbCartContext);
+  
   // state for select content
   const [selectedQuantity, setSelectedQuantity] = useState(1);
 
   const { id } = useParams();
+
+  // function to handle add to cart
+  const handleAddToCart = async (product, quantity) => {
+    try {
+      await axios.post('http://localhost:5000/cart/', { product: product._id, quantity });
+      alert('Product added to cart');
+    } catch (error) {
+      console.error('Error adding product to cart:', error);
+    }
+  };
   //  fetch for product details
 
   useEffect(() => {
@@ -74,15 +85,7 @@ export default function ProductDetails({ carts }) {
                 </select>
                 <button
                   className="button-primary"
-                  onClick={() => {
-                   axios.post('http://localhost:5000/cart/', { product: productDetails._id , quantity: selectedQuantity })
-                    .then(response => {
-                      alert('Product added to cart');
-                    })
-                    .catch(error => {
-                      console.error('Error adding product to cart:', error);
-                    });
-                  }}
+                  onClick={() => handleAddToCart(productDetails, selectedQuantity)}
                 >
                   {" "}
                   Add to Cart{" "}

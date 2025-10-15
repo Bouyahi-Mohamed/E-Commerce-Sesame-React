@@ -2,6 +2,15 @@ import axios from 'axios';
 import './productList.css';
 import { Link } from 'react-router-dom';
 export default function ProductList({ products = [] }) {
+// handle add to cart
+const handleAddToCart = async (productId) => {
+  try {
+    await axios.post('http://localhost:5000/cart/', { product: productId, quantity: 1 });
+    alert('Product added to cart');
+  } catch (error) {
+    console.error('Error adding product to cart:', error);
+  }
+};
 
   let ProductItems = products.map((product) => {
     return (
@@ -38,15 +47,7 @@ export default function ProductList({ products = [] }) {
           </div>
         
           <button className="add-to-cart-button button-primary"
-          onClick={() => {
-            axios.post('http://localhost:5000/cart/', { product: product._id , quantity: 1,"deliveryOption":"68ea8ade229c8fbb03760f1c" })
-              .then(response => {
-                alert('Product added to cart');
-              })
-              .catch(error => {
-                console.error('Error adding product to cart:', error);
-              });
-          }}>
+          onClick={() => handleAddToCart(product._id)}>
             Add to Cart
           </button>
         </div>
