@@ -50,15 +50,21 @@ function Header1({ carts }) {
         </div>
 
         <div className="sesame-header-right-section">
-          {false ? (
-            <Link className="account-link header-link" to="/logout">
-              <img
-                className="cart-icon"
-                src={Logout}
-                alt="Logout"
-              />
-            </Link>
-          ) : (
+          {localStorage.getItem('token') ? (
+            <>
+              
+              <Link className="account-link header-link" to="/logout">
+                <img
+                  className="cart-icon"
+                  src={Logout}
+                  alt="Logout"
+                  onClick={()=>{
+                    {localStorage.removeItem('token')}
+                  }}
+                />
+              </Link>
+            </>
+          )  : (
             <Link className="account-link header-link" to="/login">
               <img
                 className="cart-icon"
